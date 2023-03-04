@@ -29,26 +29,12 @@ yarn
 or
 npm install
 
-## Serve with at http://localhost:5000
+## Serve with at http://localhost:5001
 yarn server
 or
 npm run server
 
-## Client with at http://localhost:3000
-cd views (To go views directory and run)
-
-yarn start
-or
-npm start
-
-## build for production with minification
-yarn build
-or
-npm run build
-
-## Authentication API reference
-
-### Register a new User 
+### create a video post
 http://localhost:5001/post
 Method: POST
 Body: From data
@@ -62,7 +48,7 @@ Response:
   "status": 2001,
   "data": {
     "title": "example",
-    "description": "example@example.com",
+    "description": "description....,
     "video": {
       path: "localhost/5001/public/upload/videos/test.test.m3u8
     }
