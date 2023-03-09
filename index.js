@@ -22,20 +22,20 @@ const dbUrl = process.env.DATABASE_URL;
 const domain = process.env.HOST_URL
 
 // Port
-const port = process.env.PORT || 5001
+const port = process.env.PORT || 6000
 
 // ===================================//
 //      Connect TO MONGOODB           //
 //====================================//
 mongoose.connect(dbUrl , {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 });
 
 const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-console.log('connected db')
+  db.on('error', console.error.bind(console, 'connection error:'));
+  db.once('open', function() {
+  console.log('connected db')
 });
 
 // Set up multer to handle file uploads
@@ -86,8 +86,8 @@ app.post('/post', upload.single('video'), async (req, res) => {
     const videoPath = req.file.path;
     const outputPath = `./public/upload/videos/`
     const videname = videoPath.split("_")[1].split(".")[0]
-    const outputDir = path.join(outputPath, `${videname}`);
-    const outputName = `${videname}.m3u8`;
+    const outputDir = path.join(outputPath, Date.now() + `${videname}`);
+    const outputName = Date.now() + `${videname}.m3u8`;
     const outputUrl = domain+path.join(outputDir, outputName);
     // create hls folder
     if (!fs.existsSync(outputDir)) {
@@ -138,9 +138,9 @@ app.post('/post', upload.single('video'), async (req, res) => {
 //            404 ROUTES              //
 //====================================//
 app.get('/', (req, res) => {
-    res.send('Server is Running')
-  })
+  res.send('Server is Running')
+})
   
-  app.listen(port, () => {
-    console.log(`Server is running on port ${port}`)
-  });
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`)
+});
