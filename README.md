@@ -33,23 +33,28 @@ or
 npm run server
 
 ### create a video post
-http://localhost:5001/post
+http://localhost:5000/video
 Method: POST
 Body: From data
+<code>
 {
   "title": "example",
   "description": "example@example.com",
   "video": "your video"
 }
+</code>
 Response: 
-{
+<code>
+{ 
   "status": 201,
-  "data": {
-    "title": "example",
-    "description": "description....,
-    "video": {
-      path: "localhost/5001/public/upload/videos/test.test.m3u8
-    }
-    "views": 0,
-  }
+    "data": {
+        "title": "title video",
+        "description": "description video",
+        "video": {
+            "path": "http://localhost:5001/public/upload/videos/1678421875833test/1678421875833test.m3u8"
+        },
+        "view": 0,
+      _id": "640aaf735555d8d77d2864a4",
+      }
 }
+</code>
